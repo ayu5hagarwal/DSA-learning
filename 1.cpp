@@ -7,30 +7,29 @@ using namespace std;
 
 
 int main(){     
-    vector<int> arr{5,4,3,2,1};
-    int n = 5;
-    //selection sort
+    vector<int> arr{10,1,7,6,14,9};
 
-    for(int i = 0;i < n-1;i++){
-       int minIndex = i; 
-       for (int j = i+1; j < n; j++)
-       {
-            if (arr[j] < arr[minIndex])
-            {
-                minIndex = j;
-            }
+    int n =  arr.size();
+    //Bubble Sort
 
-       }
-        //swap 
-        swap(arr[i],arr[minIndex]);
+    for (int round = 1; round < n; round++)
+    {
+        for (int j = 0; j < n-round; j++)
+        {
+          if(arr[j]>arr[j+1]){
+            swap(arr[j],arr[j+1]);
+          }   
+        }
+        
     }
-
+    
+    //printing
     for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << " ";
+         cout << arr[i] << " ";
     }
-    cout << endl;
     
+    cout << endl;
 
     return 0;
 }
