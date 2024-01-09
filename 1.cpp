@@ -14,11 +14,18 @@ int main(){
 
     for (int round = 1; round < n; round++)
     {
+        bool swapped = false;
         for (int j = 0; j < n-round; j++)
         {
           if(arr[j]>arr[j+1]){
+            swapped = true;
             swap(arr[j],arr[j+1]);
           }   
+        }
+        if (swapped = false)
+        {
+            //sort ho chuka,no need to check further
+            break;
         }
         
     }
