@@ -8,35 +8,44 @@ using namespace std;
 
 int main(){     
     vector<int> arr{10,1,7,6,14,9};
+    int n = arr.size();
 
-    int n =  arr.size();
-    //Bubble Sort
+    //Insertion Sort
 
     for (int round = 1; round < n; round++)
     {
-        bool swapped = false;
-        for (int j = 0; j < n-round; j++)
+        //Step1 fetch
+        int val = arr[round];
+
+        //Step2 Compare
+        int j = round  -1;
+        for (; j >= 0; j--)
         {
-          if(arr[j]>arr[j+1]){
-            swapped = true;
-            swap(arr[j],arr[j+1]);
-          }   
+            if (arr[j]>val)
+            {
+                //Step3 shift
+                arr[j+1] = arr[j];
+            }
+            else{
+                //rukna hai
+                break; 
+            }            
+
         }
-        if (swapped = false)
-        {
-            //sort ho chuka,no need to check further
-            break;
-        }
+        //Step4 Copy
+
+        arr[j+1] = val;
         
     }
     
     //printing
     for (int i = 0; i < n; i++)
     {
-         cout << arr[i] << " ";
+        cout << arr[i] << " ";
     }
-    
+
     cout << endl;
+    
 
     return 0;
 }
