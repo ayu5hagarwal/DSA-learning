@@ -1,24 +1,15 @@
 #include <iostream>
 using namespace std;
 
-
-
-int ceilIndex(int arr[], int n, int target) {
-    int left = 0;
-    int right = n - 1;
-    int ceil = -1;
-
-    while (left <= right) {
-        int mid = left + (right - left) / 2;
-        if (arr[mid] == target) {
-            return mid;
-        } else if (arr[mid] < target) {
-            left = mid + 1;
-        } else {
-            ceil = mid;
-            right = mid - 1;
+void selectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; j++) {
+            if (arr[j] < arr[minIndex])
+                minIndex = j;
         }
+        int temp = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = temp;
     }
-
-    return ceil;
 }
