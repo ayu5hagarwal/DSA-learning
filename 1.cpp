@@ -1,20 +1,22 @@
 #include <iostream>
-#include<algorithm>
+#include<stack>
 
 using namespace std;
 
-//Recursion Method
+//Using Stack
 
-void reversedArr(int originalArr[],int i,int j){
-   if(i>=j) {
-    return;
-   }
-
-   int temp = originalArr[j];
-   originalArr[j] = originalArr[i];
-   originalArr[i] = temp;
-
-   reversedArr(originalArr,i+1,j-1) ;
+void reversedArr(int originalArr[],int size){
+  stack<int> stack;
+  for (int i = 0; i < size; i++)
+  {
+    stack.push(originalArr[i]);
+  }
+  for (int i = 0; i < size; i++)
+  {
+    originalArr[i] = stack.top();
+    stack.pop();
+  }
+   
 }
 
 void printArray(int originalArr[],int size){
@@ -28,8 +30,6 @@ void printArray(int originalArr[],int size){
 int main(){
     int originalArr[] = {1,2,3,4,5};
     int size = sizeof(originalArr)/sizeof(originalArr[0]);
-    int i = 0;
-    int j = size - 1;
-    reversedArr(originalArr,i,j);
+    reversedArr(originalArr,size);
     printArray(originalArr,size);
 }
