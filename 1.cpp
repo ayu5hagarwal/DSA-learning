@@ -1,17 +1,10 @@
 #include <iostream>
+#include<algorithm>
+
 using namespace std;
 
 void reversedArr(int originalArr[],int size){
-    int i = 0;
-    int j = size - 1;
-    while (i<j)
-    {
-        int temp = originalArr[j];
-        originalArr[j] = originalArr[i];
-        originalArr[i] = temp;
-        i++;
-        j--; 
-    }
+    reverse(originalArr,originalArr+size);
     for (int i = 0; i < size; i++)
     {
         cout << originalArr[i] << " ";
