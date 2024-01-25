@@ -1,24 +1,23 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                swap(arr[j], arr[j+1]);
-            }
-        }
+void reversedArr(int originalArr[],int size){
+    int reverseArr[size];
+    for (int i = 0; i < size; i++)
+    {
+        reverseArr[i] = originalArr[size - i -1];   
     }
+    
+    for (int i = 0; i < size; i++)
+    {
+        cout << reverseArr[i] << " " ;
+    }
+
 }
 
-    for (int i = 0; i < n - 1; i++) {
-        int minIndex = i;
-        for (int j = i + 1; j < n; j++) {
-            if (arr[j] < arr[minIndex])
-                minIndex = j;
-        }
-        int temp = arr[minIndex];
-        arr[minIndex] = arr[i];
-        arr[i] = temp;
-    }
+int main(){
+    int originalArr[] = {1,2,3,4,5};
+    int size = sizeof(originalArr)/sizeof(originalArr[0]);
+
+    reversedArr(originalArr,size);
 }
