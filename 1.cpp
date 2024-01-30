@@ -12,12 +12,41 @@ struct Pair
 
 Pair getMinMax(int arr[],int n){
     Pair minmax;
+    int i = 0;
 
-    sort(arr,arr+n);
+
+    if(n == 1){
 
     minmax.min = arr[0];
-    minmax.max = arr[n-1];
+    minmax.max = arr[0];
 
+    return minmax;
+    }
+
+
+    if(arr[0] > arr[1]){
+        minmax.max = arr[0];
+        minmax.min = arr[1];
+        
+    }
+    else{
+        minmax.max = arr[1];
+        minmax.min = arr[0];
+    }
+
+    for (int i = 2; i < n; i++)
+    {
+        if (arr[i] > minmax.max)
+        {
+            minmax.max = arr[i];
+        }
+        else if (arr[i]<minmax.min)
+        {
+            minmax.min = arr[i];
+        }
+        
+    }
+    
     return minmax;
 }
 
