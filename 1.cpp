@@ -1,35 +1,35 @@
 #include <iostream>
 #include<stack>
+#include<algorithm>
 
 using namespace std;
 
-//Using Stack
+struct Pair
+{
+    int min;
+    int max;   
+};
 
-void reversedArr(int originalArr[],int size){
-  stack<int> stack;
-  for (int i = 0; i < size; i++)
-  {
-    stack.push(originalArr[i]);
-  }
-  for (int i = 0; i < size; i++)
-  {
-    originalArr[i] = stack.top();
-    stack.pop();
-  }
-   
+Pair getMinMax(int arr[],int n){
+    Pair minmax;
+
+    sort(arr,arr+n);
+
+    minmax.min = arr[0];
+    minmax.max = arr[n-1];
+
+    return minmax;
 }
 
-void printArray(int originalArr[],int size){
-    for (int i = 0; i < size; i++)
-    {
-        cout << originalArr[i] << " ";
-    }
-    
-}
 
 int main(){
-    int originalArr[] = {1,2,3,4,5};
-    int size = sizeof(originalArr)/sizeof(originalArr[0]);
-    reversedArr(originalArr,size);
-    printArray(originalArr,size);
+    int arr[] = {1000,11,445,1,330,3000};
+    int arr_size = sizeof(arr)/sizeof(arr[0]);
+
+    Pair minmax =  getMinMax(arr,arr_size);
+
+    cout << "Minimum element is " << minmax.min << endl;
+    cout << "Maximum element is " << minmax.max << endl;
+
+    return 0;
 }
